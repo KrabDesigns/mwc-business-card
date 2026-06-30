@@ -11,17 +11,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Montserrat', sans-serif; background: #0d1018; color: #dde1ed; min-height: 100vh; padding: 36px 20px 60px; }
+body { font-family: 'Montserrat', sans-serif; background: #f0f0f0; color: #dde1ed; min-height: 100vh; padding: 36px 20px 60px; }
 .header { text-align: center; margin-bottom: 44px; }
-.header h1 { font-size: 20px; font-weight: 800; letter-spacing: 0.22em; color: #fff; text-transform: uppercase; }
-.header p { font-size: 10px; font-weight: 300; letter-spacing: 0.18em; color: #00b68d; text-transform: uppercase; margin-top: 6px; }
+.header h1 { font-size: 20px; font-weight: 800; letter-spacing: 0.22em; color: #003366; text-transform: uppercase; }
+.header p { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; color: #00B68D; text-transform: uppercase; margin-top: 6px; }
 .header-bar { width: 48px; height: 2px; background: linear-gradient(90deg,#00b68d,#2e5dab); border-radius: 2px; margin: 14px auto 0; }
 .layout { display: flex; gap: 36px; max-width: 1100px; margin: 0 auto; align-items: flex-start; }
-.form-panel { flex: 0 0 320px; background: #13161f; border: 1px solid #1e2232; border-radius: 16px; padding: 28px 24px 24px; }
+.form-panel { flex: 0 0 320px; background: #e7e7e7; border: 1px solid #1e2232; border-radius: 16px; padding: 28px 24px 24px; }
 .form-panel h2 { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: #00b68d; text-transform: uppercase; margin-bottom: 22px; }
 .field { margin-bottom: 16px; }
 .field label { display: block; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #636882; text-transform: uppercase; margin-bottom: 7px; }
-.field input, .field textarea { width: 100%; background: #0d1018; border: 1px solid #1e2232; border-radius: 7px; color: #dde1ed; font-family: 'Montserrat', sans-serif; font-size: 12.5px; font-weight: 400; padding: 10px 13px; transition: border-color 0.18s; outline: none; resize: none; }
+.field input, .field textarea { width: 100%; background: #e2e2e2; border: 1px solid #1e2232; border-radius: 7px; color: #dde1ed; font-family: 'Montserrat', sans-serif; font-size: 12.5px; font-weight: 400; padding: 10px 13px; transition: border-color 0.18s; outline: none; resize: none; }
 .field input:focus, .field textarea:focus { border-color: #00b68d; }
 .field input::placeholder, .field textarea::placeholder { color: #2e3348; }
 .field textarea { height: 76px; line-height: 1.55; }
@@ -37,7 +37,7 @@ body { font-family: 'Montserrat', sans-serif; background: #0d1018; color: #dde1e
 #status.busy { background: #0e1120; color: #7a9acc; border: 1px solid #2e5dab33; }
 .preview-panel { flex: 1; min-width: 0; }
 .preview-panel > h2 { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: #00b68d; text-transform: uppercase; margin-bottom: 18px; }
-.card-label { font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #373d56; text-transform: uppercase; margin-bottom: 8px; }
+.card-label { font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #373d56; text-transform: uppercase; margin-bottom: 8px; margin-top: 22px;}
 .card-label + .card-label { margin-top: 22px; }
 .card-wrap { border-radius: 10px; overflow: hidden; box-shadow: 0 6px 36px rgba(0,0,0,.55); line-height: 0; max-width: 540px; }
 .card-wrap svg { width: 100%; height: auto; display: block; }
