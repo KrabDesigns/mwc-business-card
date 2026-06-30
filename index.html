@@ -10,13 +10,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: #0d1018;
-  color: #dde1ed;
-  min-height: 100vh;
-  padding: 36px 20px 60px;
-}
+body { font-family: 'Montserrat', sans-serif; background: #0d1018; color: #dde1ed; min-height: 100vh; padding: 36px 20px 60px; }
 .header { text-align: center; margin-bottom: 44px; }
 .header h1 { font-size: 20px; font-weight: 800; letter-spacing: 0.22em; color: #fff; text-transform: uppercase; }
 .header p { font-size: 10px; font-weight: 300; letter-spacing: 0.18em; color: #00b68d; text-transform: uppercase; margin-top: 6px; }
@@ -26,22 +20,11 @@ body {
 .form-panel h2 { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: #00b68d; text-transform: uppercase; margin-bottom: 22px; }
 .field { margin-bottom: 16px; }
 .field label { display: block; font-size: 9.5px; font-weight: 600; letter-spacing: 0.14em; color: #636882; text-transform: uppercase; margin-bottom: 7px; }
-.field input, .field textarea {
-  width: 100%; background: #0d1018; border: 1px solid #1e2232; border-radius: 7px;
-  color: #dde1ed; font-family: 'Montserrat', sans-serif; font-size: 12.5px; font-weight: 400;
-  padding: 10px 13px; transition: border-color 0.18s; outline: none; resize: none;
-}
+.field input, .field textarea { width: 100%; background: #0d1018; border: 1px solid #1e2232; border-radius: 7px; color: #dde1ed; font-family: 'Montserrat', sans-serif; font-size: 12.5px; font-weight: 400; padding: 10px 13px; transition: border-color 0.18s; outline: none; resize: none; }
 .field input:focus, .field textarea:focus { border-color: #00b68d; }
 .field input::placeholder, .field textarea::placeholder { color: #2e3348; }
 .field textarea { height: 76px; line-height: 1.55; }
-.btn {
-  width: 100%; margin-top: 6px; padding: 13px;
-  background: linear-gradient(130deg,#00b68d,#1a5dab);
-  border: none; border-radius: 8px; color: #fff;
-  font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
-  letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer;
-  transition: opacity 0.18s, transform 0.1s;
-}
+.btn { width: 100%; margin-top: 6px; padding: 13px; background: linear-gradient(130deg,#00b68d,#1a5dab); border: none; border-radius: 8px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer; transition: opacity 0.18s, transform 0.1s; }
 .btn:hover { opacity: 0.88; }
 .btn:active { transform: scale(0.98); }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
@@ -62,18 +45,18 @@ body {
 </head>
 <body>
 <div class="header">
-  <h1>MWC Business Card App</h1>
+  <h1>Business Card Generator</h1>
   <p>MetaWorld Consultant &mdash; Print-Ready PDF</p>
   <div class="header-bar"></div>
 </div>
 <div class="layout">
   <div class="form-panel">
     <h2>Card Details</h2>
-    <div class="field"><label>Full Name</label><input type="text" id="f-name" placeholder="e.g. Shahzaib Zahid" oninput="liveUpdate()"></div>
-    <div class="field"><label>Designation</label><input type="text" id="f-desig" placeholder="e.g. Graphic Designer" oninput="liveUpdate()"></div>
-    <div class="field"><label>Phone Number</label><input type="text" id="f-phone" placeholder="e.g. +92 316 1234567" oninput="liveUpdate()"></div>
+    <div class="field"><label>Full Name</label><input type="text" id="f-name" placeholder="e.g. Abid Khattak" oninput="liveUpdate()"></div>
+    <div class="field"><label>Designation</label><input type="text" id="f-desig" placeholder="e.g. Legal Associate" oninput="liveUpdate()"></div>
+    <div class="field"><label>Phone Number</label><input type="text" id="f-phone" placeholder="e.g. +92 333 4141184" oninput="liveUpdate()"></div>
     <div class="field"><label>Email Address</label><input type="text" id="f-email" placeholder="e.g. name@metaworldconsultant.com" oninput="liveUpdate()"></div>
-    <div class="field"><label>Office Address</label><textarea id="f-addr" placeholder="e.g. M3, Mezzanine Floor, Dossal Arcade, Jinnah Avenue, Blue Area, Islamabad, Pakistan " oninput="liveUpdate()"></textarea></div>
+    <div class="field"><label>Office Address</label><textarea id="f-addr" placeholder="e.g. Office No 8, Azam Line, Near Budni Bridge, Charsadda Road, Peshawar" oninput="liveUpdate()"></textarea></div>
     <button class="btn" id="btnGen" onclick="generatePDF()">&#8595;&nbsp; Download PDF</button>
     <div id="status"></div>
     <p class="note">2-page PDF &bull; 88.9&times;50.8 mm &bull; 300 DPI &bull; Montserrat</p>
@@ -88,7 +71,6 @@ body {
 </div>
 <script>
 
-// ---- SVG data injected below ----
 const FRONT_SVG = `<?xml version="1.0" encoding="UTF-8"?>
 <svg id="f-Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 270 162">
   <defs>
@@ -3135,7 +3117,7 @@ const BACK_TMPL  = `<?xml version="1.0" encoding="UTF-8"?>
 
       .b-cls-7 {
         font-family: Montserrat-Light, Montserrat;
-        font-size: 6.98px;
+        font-size: 6px;
       }
 
       .b-cls-8 {
@@ -3148,7 +3130,7 @@ const BACK_TMPL  = `<?xml version="1.0" encoding="UTF-8"?>
 
       .b-cls-3 {
         font-family: Montserrat-Bold, Montserrat;
-        font-size: 11.27px;
+        font-size: 10px;
         font-weight: 700;
       }
 
@@ -3234,7 +3216,7 @@ const BACK_TMPL  = `<?xml version="1.0" encoding="UTF-8"?>
   <text class="b-cls-3" transform="translate(24 66.67)"><tspan x="0" y="0">{{NAME}}</tspan></text>
   <text class="b-cls-7" transform="translate(24 77.57)"><tspan x="0" y="0">{{DESIGNATION}}</tspan></text>
   <text class="b-cls-6" transform="translate(41.85 102.99)"><tspan x="0" y="0">{{PHONE}}</tspan></text>
-  <text class="b-cls-6" transform="translate(41.85 119.86)"><tspan x="0" y="0">{{EMAIL}}</tspan></text>
+  <text class="b-cls-6" transform="translate(41.85 119.86)">{{EMAIL}}</text>
   <rect class="b-cls-23" x="24" y="84.57" width="36" height=".86"/>
   <path class="b-cls-12" d="M270,0v18.43c-5.99,3.6-11.62,7.81-16.82,12.59-.68.63-1.37,1.25-2.03,1.9-1.18,1.14-2.32,2.32-3.45,3.52-1.26,1.35-2.48,2.73-3.66,4.15-.65.77-1.32,1.51-1.94,2.29-.51.64-1,1.3-1.49,1.96-.67.88-1.32,1.79-1.97,2.7-2.68,3.79-5.18,7.81-7.42,11.97-.26.48-.52.95-.77,1.44-.64,1.23-1.26,2.47-1.86,3.71-.86,1.81-1.69,3.65-2.47,5.53-.32.78-.59,1.56-.89,2.35-.44,1.12-.85,2.27-1.25,3.42-.43,1.26-.85,2.53-1.22,3.78-7.33,29.79-2.56,58.81,11.72,82.26h-47.9c-18.78-47.57-12.21-103.58,22.07-146.33.09-.1.17-.19.25-.29.05-.07.1-.13.15-.2.16-.2.33-.37.5-.57,1.68-2.06,3.41-4.05,5.18-5.99,1.55-1.73,3.16-3.38,4.78-5.02.59-.6,1.18-1.2,1.79-1.78.63-.61,1.26-1.22,1.9-1.82h46.8Z"/>
   <path class="b-cls-12" d="M270,25.22v24.76c-2.93,2.67-5.68,5.6-8.24,8.79-24.81,30.93-22.53,74.97,3.66,103.23h-24.66c-22.66-35.21-21.18-82.98,6.69-116.68,6.66-8.04,14.28-14.75,22.55-20.1Z"/>
@@ -3277,7 +3259,7 @@ const BACK_TMPL  = `<?xml version="1.0" encoding="UTF-8"?>
   </g>
 </svg>`;
 
-// ---- Helpers ----
+// ---- XML escaping ----
 function escXml(s) {
   return (s || "")
     .replace(/&/g, "&amp;")
@@ -3287,40 +3269,94 @@ function escXml(s) {
     .replace(/'/g, "&apos;");
 }
 
-// Canvas text measurer - uses live Montserrat loaded in the page
+// ---- Text measurement ----
+// Measure at 500px for high precision (avoids sub-pixel rounding at tiny sizes),
+// then scale back to SVG user units (font-size 6.29px in SVG = 6.29 user units).
+// We call this ONLY after document.fonts.ready so Montserrat is guaranteed loaded.
 var _mc = document.createElement("canvas").getContext("2d");
-function measureTxt(text, weight, size) {
-  _mc.font = weight + " " + size + "px Montserrat, sans-serif";
-  return _mc.measureText(text).width;
+var MEASURE_SCALE = 500;   // measure at 500px, scale down to 6.29
+
+function measureSVGUnits(text) {
+  _mc.font = "300 " + MEASURE_SCALE + "px Montserrat, sans-serif";
+  var pxAt500 = _mc.measureText(text).width;
+  // width in SVG user units = pxAt500 * (6.29 / MEASURE_SCALE)
+  return pxAt500 * (6.29 / MEASURE_SCALE);
 }
 
-// Word-wrap address to stay left of x=210 SVG units (before the curve decoration)
-// Text starts at x=41.85, available width = 210-41.85 = 168 SVG units
-function wrapAddress(text) {
-  var maxW  = 150;
-  var SIZE  = 6.29;
-  var WT    = "300";
+// ---- Address word-wrap ----
+// Card safe zone analysis (SVG viewBox 270x162):
+//   Gradient image inner clip rect starts at x = 184.31
+//   Outer curve clip-path left edge at address y (~134-150) ≈ x = 240
+//   Blue solid shape left edge at address y ≈ x = 254
+//   Text starts at x = 41.85
+//   Conservative safe right edge: x = 190  →  maxWidth = 190 - 41.85 = 148 SVG units
+var ADDR_MAX_WIDTH = 145;
+
+// Generic wrapper: breaks on whitespace first; any "word" (e.g. a long
+// email address with no spaces) that is still wider than maxWidth on its
+// own gets hard-broken character by character so it can never overflow.
+function wrapToWidth(text, maxWidth, maxLines) {
   var words = (text || "").trim().split(/\s+/);
   var lines = [];
   var line  = "";
+
+  function pushLine(l) {
+    if (l) lines.push(l);
+  }
+
+  function breakLongToken(token) {
+    // Splits a single overlong token into width-constrained chunks.
+    var chunk = "";
+    for (var c = 0; c < token.length; c++) {
+      var test = chunk + token[c];
+      if (measureSVGUnits(test) <= maxWidth || chunk === "") {
+        chunk = test;
+      } else {
+        pushLine(chunk);
+        chunk = token[c];
+      }
+    }
+    return chunk;
+  }
+
   for (var i = 0; i < words.length; i++) {
-    var w    = words[i];
-    var test = line ? line + " " + w : w;
-    if (measureTxt(test, WT, SIZE) <= maxW) {
+    var word = words[i];
+
+    if (measureSVGUnits(word) > maxWidth) {
+      // The word itself is too wide (e.g. a long unbroken email/URL) —
+      // flush the current line, then hard-break the word by character.
+      pushLine(line);
+      line = breakLongToken(word);
+      continue;
+    }
+
+    var test = line ? line + " " + word : word;
+    if (measureSVGUnits(test) <= maxWidth) {
       line = test;
     } else {
-      if (line) lines.push(line);
-      line = w;
+      pushLine(line);
+      line = word;
     }
   }
-  if (line) lines.push(line);
-  return lines.slice(0, 4);
+  pushLine(line);
+  return lines.slice(0, maxLines);
 }
 
+function wrapAddress(text) {
+  return wrapToWidth(text, ADDR_MAX_WIDTH, 4);  // max 4 lines before running off card bottom
+}
+
+// Email uses the same safe-zone width as the address, but only has room
+// for 2 lines before it would collide with the address line below it.
+function wrapEmail(text) {
+  return wrapToWidth(text, 135, 2);
+}
+
+// ---- Build back SVG from user data ----
 function buildBack(d) {
   var lines  = wrapAddress(d.address);
   var tspans = "";
-  if (lines.length) {
+  if (lines.length > 0) {
     for (var i = 0; i < lines.length; i++) {
       tspans += '<tspan x="0" y="' + (i * 7.8).toFixed(1) + '">' + escXml(lines[i]) + "</tspan>";
     }
@@ -3328,11 +3364,29 @@ function buildBack(d) {
     tspans = '<tspan x="0" y="0">' + escXml(d.address || "") + "</tspan>";
   }
 
+  var emailLines  = wrapEmail(d.email);
+  var emailTspans = "";
+  if (emailLines.length > 1) {
+    // Wrapped to 2 lines: shift the block up so it centers on the
+    // envelope icon instead of just stacking downward from the baseline.
+    var EMAIL_LH     = 7;     // line height between wrapped email lines
+    var ICON_SHIFT   = -1.36; // moves the 2-line block's center to align with the icon
+    var startY = ICON_SHIFT - EMAIL_LH / 2;
+    for (var j = 0; j < emailLines.length; j++) {
+      emailTspans += '<tspan x="0" y="' + (startY + j * EMAIL_LH).toFixed(2) + '">' + escXml(emailLines[j]) + "</tspan>";
+    }
+  } else if (emailLines.length === 1) {
+    // Single line: keep the original baseline untouched.
+    emailTspans = '<tspan x="0" y="0">' + escXml(emailLines[0]) + "</tspan>";
+  } else {
+    emailTspans = '<tspan x="0" y="0">' + escXml(d.email || "") + "</tspan>";
+  }
+
   return BACK_TMPL
     .replace("{{NAME}}",        escXml(d.name        || "Full Name"))
     .replace("{{DESIGNATION}}", escXml(d.designation || "Designation"))
     .replace("{{PHONE}}",       escXml(d.phone       || "+00 000 0000000"))
-    .replace("{{EMAIL}}",       escXml(d.email       || "email@example.com"))
+    .replace("{{EMAIL}}",       emailTspans)
     .replace("{{ADDRESS}}",     tspans);
 }
 
@@ -3347,10 +3401,13 @@ function getData() {
 }
 
 // ---- Live Preview ----
+// Wait for fonts before every update so measurement uses real Montserrat widths
 function liveUpdate() {
-  var d = getData();
-  document.getElementById("prevFront").innerHTML = FRONT_SVG;
-  document.getElementById("prevBack").innerHTML  = buildBack(d);
+  document.fonts.ready.then(function() {
+    var d = getData();
+    document.getElementById("prevFront").innerHTML = FRONT_SVG;
+    document.getElementById("prevBack").innerHTML  = buildBack(d);
+  });
 }
 
 // ---- PDF Generation ----
@@ -3360,10 +3417,10 @@ function svgToCanvas(svgStr, w, h, scale) {
     var url  = URL.createObjectURL(blob);
     var img  = new Image();
     img.onload = function() {
-      var c   = document.createElement("canvas");
+      var c    = document.createElement("canvas");
       c.width  = Math.round(w * scale);
       c.height = Math.round(h * scale);
-      var ctx = c.getContext("2d");
+      var ctx  = c.getContext("2d");
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = "high";
       ctx.drawImage(img, 0, 0, c.width, c.height);
@@ -3387,11 +3444,12 @@ async function generatePDF() {
   setS("Rendering at 300 DPI…", "busy");
 
   try {
+    // Guarantee Montserrat is loaded (same promise liveUpdate uses)
     await document.fonts.ready;
 
     // 3.5" x 2" card; SVG viewBox 270x162; 300 DPI -> scale = 1050/270
     var SCALE = (3.5 * 300) / 270;
-    var W_MM=88.9, H_MM=50.8, SVG_W=270, SVG_H=162;
+    var W_MM = 88.9, H_MM = 50.8, SVG_W = 270, SVG_H = 162;
 
     setS("Rendering front…", "busy");
     var cFront = await svgToCanvas(FRONT_SVG, SVG_W, SVG_H, SCALE);
@@ -3402,7 +3460,6 @@ async function generatePDF() {
     setS("Building PDF…", "busy");
     var jsPDF = window.jspdf.jsPDF;
     var pdf   = new jsPDF({ orientation: "landscape", unit: "mm", format: [H_MM, W_MM] });
-
     pdf.addImage(cFront.toDataURL("image/jpeg", 1.0), "JPEG", 0, 0, W_MM, H_MM);
     pdf.addPage([H_MM, W_MM], "landscape");
     pdf.addImage(cBack.toDataURL("image/jpeg", 1.0),  "JPEG", 0, 0, W_MM, H_MM);
@@ -3417,7 +3474,11 @@ async function generatePDF() {
   btn.disabled = false;
 }
 
-window.addEventListener("DOMContentLoaded", liveUpdate);
+// ---- Init ----
+window.addEventListener("DOMContentLoaded", function() {
+  // Pre-warm font loading so first liveUpdate has accurate measurements
+  document.fonts.load("300 500px Montserrat").then(liveUpdate);
+});
 </script>
 </body>
 </html>
