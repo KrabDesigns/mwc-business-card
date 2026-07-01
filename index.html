@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaWorld Design Tools</title>
+<link rel="icon" type="image/x-icon" href="https://cdn.prod.website-files.com/688fa27c51e2912c29db08ce/68c11ec05df6364ebe67a4be_MW_Fevicon_32%20px.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f0f0f0;
+  min-height: 100vh;
+  padding: 36px 20px 60px;
+}
+
+/* ── Header ── */
+.header { text-align: center; margin-bottom: 56px; }
+.header h1 { font-size: 20px; font-weight: 800; letter-spacing: 0.22em; color: #003366; text-transform: uppercase; }
+.header p  { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; color: #00B68D; text-transform: uppercase; margin-top: 6px; }
+.header-bar { width: 48px; height: 2px; background: linear-gradient(90deg,#00b68d,#2e5dab); border-radius: 2px; margin: 14px auto 0; }
+
+/* ── Grid ── */
+.grid {
+  display: flex;
+  gap: 28px;
+  max-width: 860px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* ── Tool Card ── */
+.tool-card {
+  flex: 1;
+  max-width: 390px;
+  background: #e7e7e7;
+  border: 1px solid #1e2232;
+  border-radius: 16px;
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,51,102,.13);
+}
+
+/* ── Preview mockup ── */
+.preview-mockup {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0,51,102,.1);
+  line-height: 0;
+  background: #fff;
+}
+
+/* Business card mockup */
+.mock-card {
+  background: #fff;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mock-card-inner {
+  background: linear-gradient(135deg, #003366 0%, #2e5dab 50%, #00b68d 100%);
+  border-radius: 6px;
+  height: 72px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 10px;
+}
+.mock-card-inner::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+}
+.mock-dot { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,.25); flex-shrink: 0; }
+.mock-lines { display: flex; flex-direction: column; gap: 5px; }
+.mock-line { height: 5px; border-radius: 3px; background: rgba(255,255,255,.7); }
+.mock-line.w60 { width: 60px; }
+.mock-line.w40 { width: 40px; background: rgba(255,255,255,.4); }
+.mock-card-back {
+  background: #f7f8fb;
+  border: 1px solid #e0e4eb;
+  border-radius: 6px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 10px;
+}
+.mock-logo { width: 28px; height: 28px; border-radius: 4px; background: linear-gradient(135deg,#003366,#2e5dab); }
+.mock-lines-r { display: flex; flex-direction: column; gap: 5px; margin-left: auto; }
+.mock-line-dark { height: 5px; border-radius: 3px; background: #cdd3e0; }
+.mock-line-dark.w50 { width: 50px; }
+.mock-line-dark.w35 { width: 35px; }
+
+/* Signature mockup */
+.mock-sig {
+  background: #fff;
+  padding: 14px 16px;
+}
+.mock-sig-inner {
+  background: #fff;
+  border: 1px solid #e8eaf0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mock-sig-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#003366,#2e5dab 50%,#00b68d);
+  flex-shrink: 0;
+}
+.mock-sig-divider {
+  width: 1.5px;
+  height: 36px;
+  background: linear-gradient(180deg,#2e5dab,#00b68d);
+  flex-shrink: 0;
+}
+.mock-sig-name { display: flex; flex-direction: column; gap: 4px; }
+.mock-sig-line { height: 6px; border-radius: 3px; background: #00b68d; }
+.mock-sig-line.lg { width: 72px; }
+.mock-sig-line.sm { width: 44px; background: #2e5dab; opacity: .6; }
+.mock-sig-contact { display: flex; flex-direction: column; gap: 4px; margin-left: auto; }
+.mock-sig-contact-line { height: 4px; border-radius: 2px; background: #cdd3e0; }
+.mock-sig-contact-line.w55 { width: 55px; }
+.mock-sig-contact-line.w45 { width: 45px; }
+.mock-sig-contact-line.w50 { width: 50px; }
+
+/* ── Card text ── */
+.tool-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #00b68d;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.tool-title {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #003366;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.tool-desc {
+  font-size: 11px;
+  font-weight: 400;
+  color: #636882;
+  line-height: 1.75;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.tool-btn {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(130deg,#00b68d,#1a5dab);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: opacity 0.18s;
+}
+.tool-btn:hover { opacity: 0.88; }
+.tool-btn svg { flex-shrink: 0; }
+
+@media (max-width: 680px) {
+  .grid { flex-direction: column; align-items: center; }
+  .tool-card { max-width: 100%; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>MWC Design Tools</h1>
+  <p>MetaWorld Consultant &mdash; Brand Asset Generator</p>
+  <div class="header-bar"></div>
+</div>
+
+<div class="grid">
+
+  <!-- ── Business Card ── -->
+  <a class="tool-card" href="business-card-fn.html">
+    <div class="preview-mockup">
+      <div class="mock-card">
+        <div class="mock-card-inner">
+          <div class="mock-dot"></div>
+          <div class="mock-lines">
+            <div class="mock-line w60"></div>
+            <div class="mock-line w40"></div>
+          </div>
+        </div>
+        <div class="mock-card-back">
+          <div class="mock-logo"></div>
+          <div class="mock-lines-r">
+            <div class="mock-line-dark w50"></div>
+            <div class="mock-line-dark w35"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-tag">Print Asset</div>
+    <div class="tool-title">Business Card</div>
+    <p class="tool-desc">
+      Generate a print-ready business card PDF with your name, designation, contact details, and office address. Exports as a 2-page PDF at 300 DPI.
+    </p>
+    <span class="tool-btn">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 1v8M4 6l3 3 3-3M1 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Open Business Card Tool
+    </span>
+  </a>
+
+  <!-- ── Email Signature ── -->
+  <a class="tool-card" href="email-signature-generator.html">
+    <div class="preview-mockup">
+      <div class="mock-sig">
+        <div class="mock-sig-inner">
+          <div class="mock-sig-logo"></div>
+          <div class="mock-sig-divider"></div>
+          <div class="mock-sig-name">
+            <div class="mock-sig-line lg"></div>
+            <div class="mock-sig-line sm"></div>
+          </div>
+          <div class="mock-sig-contact">
+            <div class="mock-sig-contact-line w55"></div>
+            <div class="mock-sig-contact-line w45"></div>
+            <div class="mock-sig-contact-line w50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-tag">Digital Asset</div>
+    <div class="tool-title">Email Signature</div>
+    <p class="tool-desc">
+      Generate a branded email signature with your name, designation, contact details, and office address. Exports as PNG or SVG for use in any email client.
+    </p>
+    <span class="tool-btn">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M7 1v8M4 6l3 3 3-3M1 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Open Signature Tool
+    </span>
+  </a>
+
+</div>
+
+</body>
+</html>
